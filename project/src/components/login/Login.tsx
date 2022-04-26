@@ -16,7 +16,7 @@ import logopng from "assets/logopng.png";
 import { AiFillMinusCircle as Minus } from "react-icons/ai";
 
 export function Login() {
-  const { profileData, setProfileData, loginSuccess, setLoginSuccess } =
+  const { profileData, setProfileData, handleInputChange } =
     useContext(ProfileContext);
   const navigate = useNavigate();
   const isInputFilled =
@@ -24,12 +24,6 @@ export function Login() {
 
   const isEmailCorrect =
     profileData?.email?.length > 2 && !emailPattern.test(profileData?.email);
-
-  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const { name, value } = e.target;
-
-    setProfileData((prevValue) => ({ ...prevValue, [name]: value }));
-  }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
