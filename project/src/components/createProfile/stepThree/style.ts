@@ -95,5 +95,4 @@ export const Submit = styled.button<IActive>`
   font-weight: bold;
   font-size: 0.8rem;
   cursor: ${(props) => (props.$isActive ? "pointer" : "not-allowed")};
-  z-index: 999;
 `;

@@ -41,7 +41,9 @@ export function Login() {
     navigate("/create");
   }
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    localStorage.removeItem("user");
+  }, []);
   return (
     <Wrapper>
       <Icon src={logopng} alt="Some Logo" />

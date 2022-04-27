@@ -63,6 +63,7 @@ export const NotifyDescription = styled.p`
 
 export const Input = styled.input`
   width: 70%;
+  padding-inline: 15px;
   height: 35px;
   border-radius: 5px;
   color: #fff;
