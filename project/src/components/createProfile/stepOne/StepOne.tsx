@@ -2,10 +2,11 @@ import { ProfileContext } from "context/ProfileContext";
 import { useContext } from "react";
 import { Form, Input, InputBox, Label, Submit } from "./style";
 import { telefonePattern } from "utils/telefoneValidator";
-import { Select } from "./customSelect/Select";
+import { Select } from "../../shared/customSelect/Select";
+import { nacionalidades } from "utils/listaNacionalidades";
 
 export function StepOne() {
-  const { profileData, handleInputChange, handleSubmit } =
+  const { profileData, handleInputChange, handleSubmit, handleSelectChange } =
     useContext(ProfileContext);
 
   const isInputFilled =
@@ -37,7 +38,12 @@ export function StepOne() {
       </InputBox>
       <InputBox>
         <Label>Nacionalidade</Label>
-        <Select />
+        <Select
+          identifier="nacionalidade"
+          value={profileData?.nacionalidade}
+          options={nacionalidades}
+          onChange={handleSelectChange}
+        />
       </InputBox>
 
       <Submit disabled={!isInputFilled} $isActive={isInputFilled}>

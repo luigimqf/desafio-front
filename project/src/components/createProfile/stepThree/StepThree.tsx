@@ -1,3 +1,4 @@
+import { Select } from "components/shared/customSelect/Select";
 import { ProfileContext } from "context/ProfileContext";
 import { useContext } from "react";
 import { MdEdit as Edit } from "react-icons/md";
@@ -13,7 +14,7 @@ import {
 } from "./style";
 
 export function StepThree() {
-  const { profileData, handleInputChange, handleSubmit } =
+  const { profileData, handleInputChange, handleSubmit, handleSelectChange } =
     useContext(ProfileContext);
 
   const isInputFilled =
@@ -28,22 +29,25 @@ export function StepThree() {
       </AvatarHolder>
       <InputBox>
         <Label>Gênero</Label>
-        <Input
-          type="tel"
-          name="genero"
-          onChange={handleInputChange}
+        <Select
+          identifier="genero"
           value={profileData?.genero}
-          placeholder="Ex: Masculino"
+          options={[
+            "Masculino",
+            "Feminino",
+            "Não-Binario",
+            "Prefiro não dizer",
+          ]}
+          onChange={handleSelectChange}
         />
       </InputBox>
       <InputBox>
         <Label>Estado Civil</Label>
-        <Input
-          type="tel"
-          name="estadoCivil"
-          onChange={handleInputChange}
+        <Select
+          identifier="estadoCivil"
           value={profileData?.estadoCivil}
-          placeholder="Ex: Solteiro"
+          options={["Solteiro", "Casado", "Viúvo(a)"]}
+          onChange={handleSelectChange}
         />
       </InputBox>
       <Submit disabled={!isInputFilled} $isActive={isInputFilled}>
