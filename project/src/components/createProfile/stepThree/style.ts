@@ -14,34 +14,6 @@ export const Form = styled.form`
   align-items: center;
 `;
 
-export const AvatarHolder = styled.div`
-  width: 100px;
-  aspect-ratio: 1/1;
-  position: relative;
-`;
-
-export const PencilHolder = styled.div`
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  border: 1px solid #341f97;
-  background-color: #ffffff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  left: 75px;
-  bottom: 15px;
-  cursor: pointer;
-`;
-
-export const Avatar = styled.img`
-  width: 100px;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  border: 1px solid #341f97;
-`;
-
 export const InputBox = styled.div`
   width: 80%;
   height: fit-content;
@@ -61,26 +33,6 @@ export const Label = styled.label`
   align-items: center;
   font-weight: bold;
   font-size: 0.8rem;
-`;
-
-export const Input = styled.input`
-  width: 100%;
-  height: 35px;
-  border-radius: 5px;
-  color: #2d3436;
-  border: 1px solid #8395a7;
-  transition: 0.3s;
-  background: none;
-  outline: none;
-  margin: 10px 0px;
-
-  &:focus {
-    border: 1px solid #341f97;
-  }
-  &::placeholder {
-    color: #8395a7;
-    font-size: 0.7rem;
-  }
 `;
 
 export const Submit = styled.button<IActive>`

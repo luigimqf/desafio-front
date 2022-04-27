@@ -1,32 +1,16 @@
 import { Select } from "components/shared/customSelect/Select";
 import { ProfileContext } from "context/ProfileContext";
 import { useContext } from "react";
-import { MdEdit as Edit } from "react-icons/md";
-import {
-  Avatar,
-  AvatarHolder,
-  Form,
-  Input,
-  InputBox,
-  Label,
-  PencilHolder,
-  Submit,
-} from "./style";
+import { Form, InputBox, Label, Submit } from "./style";
 
 export function StepThree() {
-  const { profileData, handleInputChange, handleSubmit, handleSelectChange } =
+  const { profileData, handleSubmit, handleSelectChange } =
     useContext(ProfileContext);
 
   const isInputFilled =
     profileData?.genero?.length > 3 && profileData?.estadoCivil?.length > 1;
   return (
     <Form onSubmit={handleSubmit}>
-      <AvatarHolder>
-        <PencilHolder>
-          <Edit size={20} />
-        </PencilHolder>
-        <Avatar />
-      </AvatarHolder>
       <InputBox>
         <Label>Gênero</Label>
         <Select
