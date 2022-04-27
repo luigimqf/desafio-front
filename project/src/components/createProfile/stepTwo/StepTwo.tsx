@@ -60,7 +60,7 @@ export function StepTwo() {
         name="cep"
         required
         onChange={handleInputChange}
-        value={profileData?.cep}
+        value={profileData?.cep ?? ""}
         placeholder="Ex: 12345-67"
       />
       <AddressBox>
@@ -71,7 +71,7 @@ export function StepTwo() {
             name="estado"
             required
             onChange={handleInputChange}
-            value={profileData?.estado}
+            value={profileData?.estado ?? ""}
             placeholder="Ex: MG"
           />
         </InputBox>
@@ -82,7 +82,7 @@ export function StepTwo() {
             name="cidade"
             required
             onChange={handleInputChange}
-            value={profileData?.cidade}
+            value={profileData?.cidade ?? ""}
             placeholder="Ex: Belo Horizonte"
           />
         </InputBox>
@@ -93,7 +93,7 @@ export function StepTwo() {
             name="endereco"
             required
             onChange={handleInputChange}
-            value={profileData?.endereco}
+            value={profileData?.endereco ?? ""}
             placeholder="Ex: Rua da felicidade"
           />
         </InputBox>
@@ -104,7 +104,7 @@ export function StepTwo() {
             name="bairro"
             required
             onChange={handleInputChange}
-            value={profileData?.bairro}
+            value={profileData?.bairro ?? ""}
             placeholder="Ex: Bairro Liberdade"
           />
         </InputBox>
@@ -114,7 +114,7 @@ export function StepTwo() {
             type="text"
             name="numero"
             onChange={handleInputChange}
-            value={profileData?.numero}
+            value={profileData?.numero ?? ""}
             placeholder="Opcional"
           />
         </InputBox>
@@ -124,7 +124,7 @@ export function StepTwo() {
             type="text"
             name="complemento"
             onChange={handleInputChange}
-            value={profileData?.complemento}
+            value={profileData?.complemento ?? ""}
             placeholder="Opcional"
           />
         </InputBox>

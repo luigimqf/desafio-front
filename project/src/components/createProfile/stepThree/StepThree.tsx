@@ -31,7 +31,7 @@ export function StepThree() {
         <Label>Gênero</Label>
         <Select
           identifier="genero"
-          value={profileData?.genero}
+          value={profileData?.genero ?? ""}
           options={[
             "Masculino",
             "Feminino",
@@ -45,7 +45,7 @@ export function StepThree() {
         <Label>Estado Civil</Label>
         <Select
           identifier="estadoCivil"
-          value={profileData?.estadoCivil}
+          value={profileData?.estadoCivil ?? ""}
           options={["Solteiro", "Casado", "Viúvo(a)"]}
           onChange={handleSelectChange}
         />

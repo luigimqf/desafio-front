@@ -1,5 +1,5 @@
 import { ProfileContext } from "context/ProfileContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Form, Input, InputBox, Label, Submit } from "./style";
 import { telefonePattern } from "utils/telefoneValidator";
 import { Select } from "../../shared/customSelect/Select";
@@ -22,7 +22,7 @@ export function StepOne() {
           type="text"
           name="nome"
           onChange={handleInputChange}
-          value={profileData?.nome}
+          value={profileData?.nome ?? ""}
           placeholder="Ex: Junior"
         />
       </InputBox>
@@ -32,7 +32,7 @@ export function StepOne() {
           type="tel"
           name="telefone"
           onChange={handleInputChange}
-          value={profileData?.telefone}
+          value={profileData?.telefone ?? ""}
           placeholder="(00) 0000-0000"
         />
       </InputBox>
@@ -40,7 +40,7 @@ export function StepOne() {
         <Label>Nacionalidade</Label>
         <Select
           identifier="nacionalidade"
-          value={profileData?.nacionalidade}
+          value={profileData?.nacionalidade ?? ""}
           options={nacionalidades}
           onChange={handleSelectChange}
         />
