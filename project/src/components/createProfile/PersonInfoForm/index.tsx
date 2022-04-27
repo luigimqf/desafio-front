@@ -1,5 +1,5 @@
 import { ProfileContext } from "context/ProfileContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Form, Input, InputBox, Label, Submit } from "./style";
 import { telefonePattern } from "utils/telefoneValidator";
 import { Select } from "../../shared/customSelect/Select";

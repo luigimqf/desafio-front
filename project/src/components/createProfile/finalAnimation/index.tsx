@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
-import { AnimatedCircle, Check, Wrapper } from "./style";
+
 import { useNavigate } from "react-router-dom";
 import { ProfileContext } from "context/ProfileContext";
+import { AnimatedCircle, Check, Wrapper } from "./style";
 
 export function FinalAnimation() {
   const { currentStep, setLoginCreated } = useContext(ProfileContext);
