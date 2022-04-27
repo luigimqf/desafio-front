@@ -1,4 +1,4 @@
 export const users = [
-  { email: "testefront@gmail.com", senha: "testando123" },
-  { email: "testefront2@gmail.com", senha: "testando1234" },
+  { id: 1, email: "testefront@gmail.com", senha: "testando123" },
+  { id: 2, email: "testefront2@gmail.com", senha: "testando1234" },
 ];
