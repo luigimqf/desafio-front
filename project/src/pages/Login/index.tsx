@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { ProfileContext } from "context/ProfileContext";
 import { emailPattern } from "utils/emailValidator";
 import { users } from "config/users";
-import logopng from "assets/logopng.png";
+import noName from "assets/noName.png";
 import { AiFillMinusCircle as Minus } from "react-icons/ai";
 
 export function Login() {
@@ -53,7 +53,7 @@ export function Login() {
   }, []);
   return (
     <Wrapper>
-      <Icon src={logopng} alt="Some Logo" />
+      <Icon src={noName} alt="Some Logo" />
       <Form onSubmit={(e) => handleSubmit(e)}>
         {isEmailCorrect && (
           <Notify>
