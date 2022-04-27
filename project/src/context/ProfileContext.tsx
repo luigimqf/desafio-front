@@ -13,9 +13,10 @@ interface IContext {
   setLoginCreate: React.Dispatch<React.SetStateAction<boolean>>;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleSelectChange: (key: string, value: string) => void;
 }
 
-interface IProfile {
+export interface IProfile {
   email: string;
   senha: string;
   nome: string;
@@ -35,7 +36,7 @@ interface IProfile {
 export const ProfileContext = createContext({} as IContext);
 
 export const ProfileProvider = ({ children }: IProps) => {
-  const [profileData, setProfileData] = useState<IProfile>({} as IProfile);
+  const [profileData, setProfileData] = useState({} as IProfile);
   const [currentStep, setCurrentStep] = useState(1);
   const [loginCreated, setLoginCreate] = useState(false);
 
@@ -43,6 +44,10 @@ export const ProfileProvider = ({ children }: IProps) => {
     const { name, value } = e.target;
 
     setProfileData((prevValue) => ({ ...prevValue, [name]: value }));
+  }
+
+  function handleSelectChange(key: string, value: string) {
+    setProfileData((prevValue) => ({ ...prevValue, [key]: value }));
   }
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -54,6 +59,7 @@ export const ProfileProvider = ({ children }: IProps) => {
   return (
     <ProfileContext.Provider
       value={{
+        handleSelectChange,
         profileData,
         setProfileData,
         currentStep,
