@@ -4,28 +4,37 @@ import {
   IoMdArrowDropup as Up,
   IoMdArrowDropdown as Down,
 } from "react-icons/io";
-import { useContext, useState } from "react";
-import { ProfileContext } from "context/ProfileContext";
+import React, { useState } from "react";
 
-export function Select() {
-  const { profileData, setProfileData } = useContext(ProfileContext);
+interface IProps {
+  identifier: string;
+  value: string;
+  options: string[];
+  placeholder?: string;
+  onChange: (key: string, value: string) => void;
+}
+
+export function Select({
+  placeholder,
+  identifier,
+  value,
+  options,
+  onChange,
+}: IProps) {
   const [isOpen, setIsOpen] = useState(false);
 
-  function handleSelect(pais: string) {
-    setProfileData((prevValue) => ({ ...prevValue, nacionalidade: pais }));
-  }
   return (
     <Wrapper onClick={() => setIsOpen(!isOpen)}>
-      <Drop
-        disabled={true}
-        value={profileData?.nacionalidade}
-        placeholder="Ex: Brasil"
-      />
+      <Drop disabled={true} value={value} placeholder={placeholder} />
       {isOpen ? <Up size={20} /> : <Down size={20} />}
       {isOpen && (
         <OptionsWrapper>
-          {nacionalidades.map((pais) => {
-            return <Option onClick={() => handleSelect(pais)}>{pais}</Option>;
+          {options.map((option) => {
+            return (
+              <Option key={option} onClick={() => onChange(identifier, option)}>
+                {option}
+              </Option>
+            );
           })}
         </OptionsWrapper>
       )}
