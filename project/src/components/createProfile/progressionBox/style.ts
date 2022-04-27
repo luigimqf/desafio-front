@@ -33,4 +33,7 @@ export const Line = styled.div<IFilled>`
   height: 5px;
   transition: 1s;
   background-color: ${(props) => (props.$isFilled ? "#00b894" : "#fff")};
+  @media (max-width: 820px) {
+    width: 50px;
+  }
 `;

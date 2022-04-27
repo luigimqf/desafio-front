@@ -16,6 +16,12 @@ export const Wrapper = styled.div`
   align-items: center;
   border-radius: 15px;
   box-shadow: 2px 1px 15px -3px #000000;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+  }
 `;
 
 export const ProfileTitleBox = styled.div`
@@ -62,6 +68,7 @@ export const InputBox = styled.div<IActive>`
   width: 100%;
   height: 35px;
   position: relative;
+  background-color: ${(props) => (props.$isActive ? "transparent" : "#ecf0f1")};
   border-radius: 5px;
   color: #fff;
   border: 1px solid #8395a7;
@@ -73,7 +80,7 @@ export const InputBox = styled.div<IActive>`
 
 export const Input = styled.input`
   width: 90%;
-  height: 95%;
+  height: 100%;
   outline: none;
   transition: 0.3s;
   border: none;
@@ -86,7 +93,6 @@ export const Input = styled.input`
 
   &:disabled {
     cursor: not-allowed;
-    background-color: #dcdde1;
   }
 
   &:focus {

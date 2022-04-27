@@ -19,11 +19,16 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 15px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Icon = styled.img`
   width: 75px;
-  height: 75px;
+  aspect-ratio: 1/1;
   position: absolute;
   top: 60px;
   left: 0;
@@ -42,6 +47,11 @@ export const Form = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Notify = styled.div`
