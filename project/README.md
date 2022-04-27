@@ -38,6 +38,9 @@ Os logins pré-definidos podem ter sido equivocados, podem foi a forma como inte
 - axios(API request)
 - react-icons(estilização)
 
-## **Por fim**
+## **Para rodar o projeto**
 
-Espero ter atendido ao que o teste pedia,apesar de estar satisfeito,sinto que o resultado pode ser melhorado e refatorado, mas foi oque pude entregar em 48hrs.
+1- Clone o projeto.
+2- Use o comando yarn install ou npm install.
+3- yarn start para iniciar o projeto.
+4- acesse a URL : localhost:3000.
