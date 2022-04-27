@@ -28,13 +28,16 @@ export function Profile() {
   const [activeInput, setActiveInput] = useState(-1);
 
   const reducedName =
-    profileData?.nome?.split(" ")[0] + " " + profileData?.nome?.split(" ")[1] ||
-    "";
+    profileData?.nome?.split(" ").length > 1
+      ? profileData?.nome?.split(" ")[0] +
+        " " +
+        profileData?.nome?.split(" ")[1]
+      : "";
 
   useEffect(() => {
     const areFilled = checkIfFieldsAreFilled(profileData);
 
-    if (!areFilled) {
+    if (!areFilled && !isEditModeOn) {
       navigate("/create");
     }
   }, [profileData]);
@@ -89,7 +92,9 @@ export function Profile() {
     <Wrapper>
       <ProfileTitleBox>
         <ProfileText style={{ fontSize: "1rem" }}>Seja bem vindo! </ProfileText>
-        <ProfileText style={{ fontSize: "1.1rem" }}>{reducedName}</ProfileText>
+        <ProfileText style={{ fontSize: "1.1rem" }}>
+          {reducedName ?? ""}
+        </ProfileText>
         <ProfileText style={{ fontSize: "0.7rem", marginTop: "10px" }}>
           Essas são suas informações pessoais.
         </ProfileText>
