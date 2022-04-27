@@ -1,23 +1,44 @@
 import styled from "styled-components";
 
+interface IActive {
+  $isActive: boolean;
+}
+
 export const Wrapper = styled.div`
   width: 45%;
   height: 95%;
-  background-color: #341f97;
+  position: relative;
+
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   border-radius: 15px;
+  box-shadow: 2px 1px 15px -3px #000000;
+`;
+
+export const ProfileTitleBox = styled.div`
+  width: 100%;
+  height: 20%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ProfileText = styled.h1`
+  margin: 0;
+  text-align: center;
 `;
 
 export const ProfileInfo = styled.div`
   width: 100%;
-  height: 85%;
+  height: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ffffff;
   overflow: auto;
 `;
 
@@ -37,7 +58,7 @@ export const Label = styled.label`
   font-size: 0.8rem;
 `;
 
-export const InputBox = styled.div`
+export const InputBox = styled.div<IActive>`
   width: 100%;
   height: 35px;
   position: relative;
@@ -52,13 +73,23 @@ export const InputBox = styled.div`
 
 export const Input = styled.input`
   width: 90%;
-  height: 100%;
+  height: 95%;
   outline: none;
+  transition: 0.3s;
   border: none;
   background: none;
   border-radius: 5px;
 
   &::placeholder {
     color: #8395a7;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #dcdde1;
+  }
+
+  &:focus {
+    border: 1px solid #341f97;
   }
 `;
