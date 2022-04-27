@@ -20,15 +20,20 @@ import { nacionalidades } from "utils/listaNacionalidades";
 export function Profile() {
   const { profileData, handleSelectChange, handleInputChange } =
     useContext(ProfileContext);
+
   const navigate = useNavigate();
+
   const [isEditModeOn, setIsEditModeOn] = useState(false);
+
   const [activeInput, setActiveInput] = useState(-1);
+
   const reducedName =
     profileData?.nome?.split(" ")[0] + " " + profileData?.nome?.split(" ")[1] ||
     "";
 
   useEffect(() => {
     const areFilled = checkIfFieldsAreFilled(profileData);
+
     if (!areFilled) {
       navigate("/create");
     }
@@ -58,8 +63,11 @@ export function Profile() {
 
   function checkIfFieldsAreFilled(profile: IProfile) {
     let areFieldsFilled = true;
+
     const profileKeys = Object.keys(profile);
+
     if (isEditModeOn) return true;
+
     if (profileKeys.length === 0) return false;
 
     for (const profileKey of Object.keys(profile)) {
@@ -93,9 +101,10 @@ export function Profile() {
           const options = getOptions(key);
           const label = getLabel(key);
           const isActive = activeInput === index;
+          const senha = key === "senha";
           if (selectKeys.includes(key)) {
             return (
-              <InputInfoWrapper>
+              <InputInfoWrapper key={key}>
                 <Label>{label}</Label>
                 <InputBox $isActive={isActive}>
                   <Select
@@ -109,20 +118,20 @@ export function Profile() {
             );
           }
           return (
-            <InputInfoWrapper>
+            <InputInfoWrapper key={key}>
               <Label>{label}</Label>
               <InputBox $isActive={isActive}>
                 <Input
-                  type="text"
+                  type={senha ? "password" : "text"}
                   disabled={!isActive}
                   name={key}
                   onChange={handleInputChange}
-                  value={profileData[key]}
+                  value={profileData[key] ?? ""}
                 />
-                {key !== "email" && (
+                {!(key === "email" || key === "senha") && (
                   <Edit
                     onClick={() => setEditMode(index)}
-                    style={{ marginRight: "10px", cursor: "pointer" }}
+                    style={{ marginRight: "5px", cursor: "pointer" }}
                     color="#000"
                     size={15}
                   />
@@ -132,6 +141,18 @@ export function Profile() {
           );
         })}
       </ProfileInfo>
+      <Logout
+        onClick={() => navigate("/login")}
+        style={{
+          position: "absolute",
+          right: "20px",
+          top: "15px",
+          color: "red",
+          width: "20px",
+          height: "20px",
+          cursor: "pointer",
+        }}
+      />
     </Wrapper>
   );
 }

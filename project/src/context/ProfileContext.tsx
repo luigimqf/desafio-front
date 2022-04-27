@@ -57,9 +57,6 @@ export const ProfileProvider = ({ children }: IProps) => {
     setCurrentStep(currentStep + 1);
   }
 
-  useEffect(() => {
-    console.log(profileData);
-  }, [profileData]);
   return (
     <ProfileContext.Provider
       value={{

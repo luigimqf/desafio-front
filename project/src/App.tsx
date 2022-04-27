@@ -10,6 +10,7 @@ function App() {
   return (
     <Wrapper>
       <GlobalStyle />
+
       <ProfileProvider>
         <Router>
           <Routes>

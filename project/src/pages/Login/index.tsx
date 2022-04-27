@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Form,
   Icon,
@@ -16,8 +16,7 @@ import logopng from "assets/logopng.png";
 import { AiFillMinusCircle as Minus } from "react-icons/ai";
 
 export function Login() {
-  const { profileData, setProfileData, handleInputChange } =
-    useContext(ProfileContext);
+  const { profileData, handleInputChange } = useContext(ProfileContext);
 
   const navigate = useNavigate();
 
@@ -31,7 +30,7 @@ export function Login() {
     e.preventDefault();
 
     const user = users.find((u) => u.email === profileData?.email);
-    console.log(profileData.email, users);
+
     if (!user) return;
 
     if (user?.senha !== profileData?.senha) return;
