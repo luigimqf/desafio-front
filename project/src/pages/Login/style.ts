@@ -57,7 +57,6 @@ export const Form = styled.form`
 export const Notify = styled.div`
   width: 70%;
   height: 25px;
-  margin-bottom: 5px;
   position: absolute;
   top: 65px;
   display: flex;

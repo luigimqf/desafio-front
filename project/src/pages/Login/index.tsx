@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Form,
   Icon,
@@ -20,6 +20,8 @@ export function Login() {
 
   const navigate = useNavigate();
 
+  const [isLoginValid, setIsLoginValid] = useState(true);
+
   const isInputFilled =
     emailPattern.test(profileData?.email) && profileData?.senha?.length > 3;
 
@@ -31,7 +33,13 @@ export function Login() {
 
     const user = users.find((u) => u.email === profileData?.email);
 
-    if (!user) return;
+    if (!user) {
+      setIsLoginValid(false);
+      setTimeout(() => {
+        setIsLoginValid(true);
+      }, 2500);
+      return;
+    }
 
     if (user?.senha !== profileData?.senha) return;
 
@@ -51,6 +59,12 @@ export function Login() {
           <Notify>
             <Minus color="#d63031" size={15} />{" "}
             <NotifyDescription>E-mail invalido</NotifyDescription>
+          </Notify>
+        )}
+        {!isLoginValid && (
+          <Notify>
+            <Minus color="#d63031" size={15} />{" "}
+            <NotifyDescription>Usuário Inválido</NotifyDescription>
           </Notify>
         )}
         <Input
