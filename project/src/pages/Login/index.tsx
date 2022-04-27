@@ -27,15 +27,17 @@ export function Login() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    for (let i = 0; i < users.length; i++) {
-      if (
-        profileData?.email === users[i]?.email &&
-        profileData?.senha === users[i]?.senha
-      ) {
-        navigate("/create");
-        return;
-      }
-    }
+    console.log("entrei");
+    const user = users.find((u) => u.email === profileData?.email);
+    console.log(profileData.email, users);
+    if (!user) return;
+    console.log(user.senha, profileData.senha);
+
+    if (user?.senha !== profileData?.senha) return;
+
+    localStorage.setItem("user", JSON.stringify(user?.id));
+
+    navigate("/create");
   }
   return (
     <Wrapper>
@@ -51,14 +53,14 @@ export function Login() {
           type="text"
           name="email"
           onChange={handleInputChange}
-          value={profileData?.email}
+          value={profileData?.email ?? ""}
           placeholder="E-mail"
         />
         <Input
           type="password"
           name="senha"
           onChange={handleInputChange}
-          value={profileData?.senha}
+          value={profileData?.senha ?? ""}
           placeholder="Password"
         />
         <Submit disabled={!isInputFilled} $isActive={isInputFilled}>
