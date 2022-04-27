@@ -1,54 +1,52 @@
-# Teste prático Front-End
+# Instruções do projeto
 
-Este teste é desenvolvido pela [Qesh](https://www.linkedin.com/company/qesh-payments/) e tem como objetivo avaliar tecnicamente o candidato para a vaga de Front-End.
-
+Este teste prático foi desenvolvido por mim com a intenção de mostrar meu conhecimento e minhas dificuldades dentro da programação.
 
 ## **Instruções**
 
-Você deverá criar um `fork` deste repositório. Nesse fork, você encontrará a pasta `project`. 
-Todo o código fonte deve ser colocado dentro da pasta `project`.
+O projeto conta com perfis pré-criados que ainda não possuem informações cadastradas. Os logins estão na pasta de config porém estarei deixando mais a baixo eles também.
 
-O repositório deverá ser público e não poderá ter nenhuma menção à Qesh.
+Em primeira instancia quando você entra no site deve-se logar usando uma das contas, após essa primeira interação o id do perfil é armazenado dentro do localstorage para evitar o usuário ficar tendo que logar toda vez que entra.
 
-Você terá **48h** para realizar o teste, consideraremos até onde você conseguir chegar com o código.
+O projeto conta com proteção de rota simples que impede usuários sem login de acessarem o profile ou o cadastro de dados.
 
-> Lembrando que não é necessária a conclusão do teste para envio do código.
+Ao entrar você passara por um cadastro em três etapas que iram coletar suas informações, sendo eles:
 
-Ao finalizar, responda o email referente ao teste com o link do seu repositório.
+> Etapa 1: Coleta de Nome, Telefone e Nacionalidade.
+> Etapa 2: Informações residenciais.
+> Etapa 3: Informações pessoais como gênero e estado civil.
 
-## **Sobre o teste**
+Durante a etapa de informações residenciais foi usada a Api ViaCEP para preenchimento automático dos campos.
 
-Você desenvolverá um aplicativo de criação perfil de usuário, que exibirá suas informações básicas e que poderão ser editáveis posteriormente.
+No decorrer das etapas pode-se ver uma barra de progressão em cima que pode ser usado para retornar a etapas passadas para correção de dados.
 
-A informações deverão ser mokadas, ou seja, não deverão ser obtidas de um banco de dados.
+Por fim, após a finalização das etapas iniciara uma animação rápida de conclusão te redirecionando para o profile logo em seguida, lá você poderá visualizar todas as suas informações e alterar o que for necessário
 
-## **Layout do projeto**
+## **Logins pré-definidos**
 
-Não há um modelo exato de como deve ficar o aplicativo final, mas criamos um [layout](https://www.figma.com/file/3avD92FrmZ8mmf8oqjdY7D/teste-frontend?node-id=4449%3A28922) de exemplo para nortear o desenvolvimento.
+Os logins pré-definidos podem ter sido equivocados, podem foi a forma como interpretei o teste prático e espero que não tenha sido um problema.
 
+> Email: testefront@gmail.com - Senha: testando123
 
-## **O que nós esperamos do teste**
+> Email: testefront2@gmail.com - Senha: testando1234
 
-- Demonstrar conhecimento de React.js
-- Demonstrar conhecimento de TypeScript
-- Boas práticas de programação
-- Um README com informações sobre o projeto e guia de uso
-- Histórico de commits do git
-- Organização, semântica, estrutura, legibilidade, manutenibilidade do seu código
-- Alcance dos objetivos propostos
-- Responsividade
+## **Bibliotecas Usadas**
 
-## **Seria ótimo ver no seu teste**
+- styled-components(estilização)
+- react-router-dom(rotas)
+- toastify(notificações)
+- axios(API request)
+- react-icons(estilização)
 
-- Testes unitários
-- Documentação do código
+## **Informações adicionais**
 
-## **Seria impressionante ver no seu teste**
+O pattern do projeto conta com uma pasta Pages que carregas as páginas principais, ela é composta por componentes vindos da pasta componentes que estão separados por blocos para cada página.
 
-- Animações e efeitos
-- Ver o código em produção (Github Pages, Heroku, Netlify)
+Pasta auxiliares como services - utils - config contém informações e serviços usados durante a aplicação para validação, requisição e integração de tipagem.
 
-## **Não seria bom**
+## **Para rodar o projeto**
 
-- Descobrir que não foi você quem fez seu teste
-- Ver commits grandes, sem muita explicação nas mensagens em seu repositório
+1- Clone o projeto.
+2- Use o comando yarn install ou npm install.
+3- yarn start para iniciar o projeto.
+4- acesse a URL : localhost:3000.
