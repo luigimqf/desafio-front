@@ -1,8 +1,8 @@
-import { FinalAnimation } from "components/createProfile/finalAnimation/FinalAnimation";
-import { StepBox } from "components/createProfile/progressionBox/StepBox";
-import { StepOne } from "components/createProfile/stepOne/StepOne";
-import { StepThree } from "components/createProfile/stepThree/StepThree";
-import { StepTwo } from "components/createProfile/stepTwo/StepTwo";
+import { FinalAnimation } from "components/createProfile/FinalAnimation";
+import { ProgressionBox } from "components/createProfile/ProgressionBox";
+import { PersonInfoForm } from "components/createProfile/PersonInfoForm";
+import { GenderForm } from "components/createProfile/GenderForm";
+import { AddressForm } from "components/createProfile/AddressForm";
 import { Progression } from "pages/CreateProfile/style";
 import { ProfileContext } from "context/ProfileContext";
 import { useContext, useEffect, useState } from "react";
@@ -21,12 +21,12 @@ export function CreateProfile() {
     <Wrapper>
       <Progression>
         {steps.map((step, index) => {
-          return <StepBox key={index} boxIndex={index} />;
+          return <ProgressionBox key={index} boxIndex={index} />;
         })}
       </Progression>
-      {currentStep === 1 && <StepOne />}
-      {currentStep === 2 && <StepTwo />}
-      {currentStep === 3 && <StepThree />}
+      {currentStep === 1 && <PersonInfoForm />}
+      {currentStep === 2 && <AddressForm />}
+      {currentStep === 3 && <GenderForm />}
       {currentStep === 4 && <FinalAnimation />}
     </Wrapper>
   );

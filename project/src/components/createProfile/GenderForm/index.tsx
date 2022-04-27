@@ -3,7 +3,7 @@ import { ProfileContext } from "context/ProfileContext";
 import { useContext } from "react";
 import { Form, InputBox, Label, Submit } from "./style";
 
-export function StepThree() {
+export function GenderForm() {
   const { profileData, handleSubmit, handleSelectChange } =
     useContext(ProfileContext);
 

@@ -4,12 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { ProfileContext } from "context/ProfileContext";
 
 export function FinalAnimation() {
-  const { currentStep } = useContext(ProfileContext);
+  const { currentStep, setLoginCreated } = useContext(ProfileContext);
   const [displayCheck, setDisplayCheck] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     setTimeout(() => {
       setDisplayCheck(true);
+      setLoginCreated(true);
       setTimeout(() => {
         if (currentStep === 4) navigate("/");
       }, 1500);

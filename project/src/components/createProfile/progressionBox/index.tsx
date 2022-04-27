@@ -1,12 +1,12 @@
 import { ProfileContext } from "context/ProfileContext";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { Box, Line, Wrapper } from "./style";
 
 interface IProps {
   boxIndex: number;
 }
 
-export function StepBox({ boxIndex }: IProps) {
+export function ProgressionBox({ boxIndex }: IProps) {
   const { currentStep, setCurrentStep } = useContext(ProfileContext);
 
   function handleStepChange() {

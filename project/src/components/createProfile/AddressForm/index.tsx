@@ -1,7 +1,6 @@
 import { ProfileContext } from "context/ProfileContext";
 import { useContext, useEffect } from "react";
 import { cepRequest } from "services/cepInformation";
-import { cepPattern } from "utils/cepValidator";
 import {
   AddressBox,
   Input,
@@ -15,7 +14,7 @@ import {
   Submit,
 } from "./style";
 
-export function StepTwo() {
+export function AddressForm() {
   const { profileData, setProfileData, handleInputChange, handleSubmit } =
     useContext(ProfileContext);
 

@@ -5,7 +5,7 @@ import { telefonePattern } from "utils/telefoneValidator";
 import { Select } from "../../shared/customSelect/Select";
 import { nacionalidades } from "utils/listaNacionalidades";
 
-export function StepOne() {
+export function PersonInfoForm() {
   const { profileData, handleInputChange, handleSubmit, handleSelectChange } =
     useContext(ProfileContext);
 
