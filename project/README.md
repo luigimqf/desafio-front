@@ -8,7 +8,7 @@ O projeto conta com perfis pré-criados que ainda não possuem informações cad
 
 Em primeira instancia quando você entra no site deve-se logar usando uma das contas, ápos essa primeira interação o id do perfil é armazenado dentro do localstorage para evitar o usuário ficar tendo que logar toda vez que entra.
 
-O projeto conta com proteção de rota simples que impede usuários já logados de voltaram para a tela de login sem terem feito o logout e usuários sem login de acessarem o profile ou o cadastro de dados.
+O projeto conta com proteção de rota simples que impede usuários usuários sem login de acessarem o profile ou o cadastro de dados.
 
 Ao entrar você passara por um cadastro em três etapas que iram coletar suas informações,sendo eles:
 
