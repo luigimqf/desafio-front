@@ -10,7 +10,7 @@ interface IContext {
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
   loginCreated: boolean;
-  setLoginCreate: React.Dispatch<React.SetStateAction<boolean>>;
+  setLoginCreated: React.Dispatch<React.SetStateAction<boolean>>;
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleSelectChange: (key: string, value: string) => void;
@@ -38,7 +38,7 @@ export const ProfileContext = createContext({} as IContext);
 export const ProfileProvider = ({ children }: IProps) => {
   const [profileData, setProfileData] = useState({} as IProfile);
   const [currentStep, setCurrentStep] = useState(1);
-  const [loginCreated, setLoginCreate] = useState(false);
+  const [loginCreated, setLoginCreated] = useState(false);
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
@@ -66,7 +66,7 @@ export const ProfileProvider = ({ children }: IProps) => {
         currentStep,
         setCurrentStep,
         loginCreated,
-        setLoginCreate,
+        setLoginCreated,
         handleInputChange,
         handleSubmit,
       }}

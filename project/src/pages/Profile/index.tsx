@@ -18,7 +18,7 @@ import { Select } from "components/shared/customSelect/Select";
 import { nacionalidades } from "utils/listaNacionalidades";
 
 export function Profile() {
-  const { profileData, handleSelectChange, handleInputChange } =
+  const { profileData, handleSelectChange, handleInputChange, loginCreated } =
     useContext(ProfileContext);
 
   const navigate = useNavigate();
@@ -35,12 +35,10 @@ export function Profile() {
       : "";
 
   useEffect(() => {
-    const areFilled = checkIfFieldsAreFilled(profileData);
-
-    if (!areFilled && !isEditModeOn) {
+    if (!loginCreated) {
       navigate("/create");
     }
-  }, [profileData]);
+  }, []);
 
   function setEditMode(index: number) {
     setIsEditModeOn(true);
