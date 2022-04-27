@@ -1,11 +1,20 @@
 import { ProfileContext } from "context/ProfileContext";
 import { useContext, useEffect } from "react";
-import { Wrapper } from "./style";
+import {
+  Input,
+  InputBox,
+  InputInfoWrapper,
+  Label,
+  ProfileInfo,
+  Wrapper,
+} from "./style";
 import { IProfile } from "context/ProfileContext";
 import { useNavigate } from "react-router-dom";
+import { MdEdit as Edit } from "react-icons/md";
+import { Select } from "components/shared/customSelect/Select";
 
 export function Profile() {
-  const { profileData } = useContext(ProfileContext);
+  const { profileData, handleSelectChange } = useContext(ProfileContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,5 +46,37 @@ export function Profile() {
     }
     return areFieldsFilled;
   }
-  return <Wrapper></Wrapper>;
+  return (
+    <Wrapper>
+      <ProfileInfo>
+        {Object.entries(profileData).map((key) => {
+          const selectKeys = ["estadoCivil", "genero", "nacionalidade"];
+          if (selectKeys.includes(key[0])) {
+            return (
+              <InputInfoWrapper>
+                <Label>Teste</Label>
+                <InputBox>
+                  <Select
+                    identifier="s"
+                    onChange={handleSelectChange}
+                    options={["1", "2"]}
+                    value={"sd"}
+                  />
+                </InputBox>
+              </InputInfoWrapper>
+            );
+          }
+          return (
+            <InputInfoWrapper>
+              <Label>Teste</Label>
+              <InputBox>
+                <Input />
+                <Edit color="#000" size={15} />
+              </InputBox>
+            </InputInfoWrapper>
+          );
+        })}
+      </ProfileInfo>
+    </Wrapper>
+  );
 }

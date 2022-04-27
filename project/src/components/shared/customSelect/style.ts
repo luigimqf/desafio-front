@@ -44,6 +44,7 @@ export const OptionsWrapper = styled.div`
   flex-direction: column;
   align-items: flex-end;
   box-shadow: 2px 1px 15px -2px #000000;
+  z-index: 1;
 `;
 
 export const Option = styled.div`

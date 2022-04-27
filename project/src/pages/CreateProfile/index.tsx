@@ -6,7 +6,7 @@ import { StepTwo } from "components/createProfile/stepTwo/StepTwo";
 import { Progression } from "pages/CreateProfile/style";
 import { ProfileContext } from "context/ProfileContext";
 import { useContext, useEffect, useState } from "react";
-import { Wrapper } from "style";
+import { Wrapper } from "./style";
 import { useNavigate } from "react-router-dom";
 
 export function CreateProfile() {

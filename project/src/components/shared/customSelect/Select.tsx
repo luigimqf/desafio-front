@@ -26,7 +26,7 @@ export function Select({
   return (
     <Wrapper onClick={() => setIsOpen(!isOpen)}>
       <Drop disabled={true} value={value} placeholder={placeholder} />
-      {isOpen ? <Up size={20} /> : <Down size={20} />}
+      {isOpen ? <Up size={20} color="#000" /> : <Down size={20} color="#000" />}
       {isOpen && (
         <OptionsWrapper>
           {options.map((option) => {

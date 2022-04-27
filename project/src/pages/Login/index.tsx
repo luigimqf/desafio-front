@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Form,
   Icon,
@@ -18,7 +18,9 @@ import { AiFillMinusCircle as Minus } from "react-icons/ai";
 export function Login() {
   const { profileData, setProfileData, handleInputChange } =
     useContext(ProfileContext);
+
   const navigate = useNavigate();
+
   const isInputFilled =
     emailPattern.test(profileData?.email) && profileData?.senha?.length > 3;
 
@@ -27,11 +29,10 @@ export function Login() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log("entrei");
+
     const user = users.find((u) => u.email === profileData?.email);
     console.log(profileData.email, users);
     if (!user) return;
-    console.log(user.senha, profileData.senha);
 
     if (user?.senha !== profileData?.senha) return;
 
@@ -39,6 +40,8 @@ export function Login() {
 
     navigate("/create");
   }
+
+  useEffect(() => {}, []);
   return (
     <Wrapper>
       <Icon src={logopng} alt="Some Logo" />
